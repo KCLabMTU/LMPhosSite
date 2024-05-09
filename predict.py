@@ -1,31 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
 """
 import required libraries
 """
 
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import xgboost as xgb
 from Bio import SeqIO
-from keras import backend as K
-from sklearn.metrics import accuracy_score, confusion_matrix, matthews_corrcoef
-
-from tensorflow.keras.models import Model, Sequential, load_model
-from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.models import load_model
 from tqdm import tqdm
 
 # for ProtT5 model
 import torch
 from transformers import T5EncoderModel, T5Tokenizer
-import re
-import gc
+import re, gc
 
 """
 define file paths and other parameters
@@ -148,7 +137,7 @@ for seq_record in tqdm(SeqIO.parse(input_fasta_file, "fasta")):
     # generate embedding features and window for each amino acid in sequence
     for index, amino_acid in enumerate(sequence):
         
-        # check if AA is 'N'
+        # check if AA is S, T or Y
         if amino_acid in ['S', 'T', 'Y']:
             site = index + 1
 

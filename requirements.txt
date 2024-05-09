@@ -1,0 +1,9 @@
+Bio==1.7.0
+biopython==1.83
+numpy==1.18.5
+pandas==1.0.5
+tensorflow==2.3.1
+torch==2.3.0
+tqdm==4.66.4
+transformers==4.40.2
+python_version>=3.8.3
